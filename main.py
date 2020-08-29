@@ -124,15 +124,15 @@ def cleansing(text):
 if mode == 'train':
 
 	# dataset
-	if not (os.path.isfile('data/dataset.zip')):
+	if not (os.path.isfile('dataset.zip')):
 		print('Downloading dataset...')
 		with urllib.request.urlopen('http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip') as dataset:
-			with open('data/dataset.zip', 'wb') as out_file:
+			with open('dataset.zip', 'wb') as out_file:
 				out_file.write(dataset.read())
 
 	columns = ["target", "ids", "date", "flag", "user", "text"]
 	encoding = 'ISO-8859-1'
-	dataset_zip = zipfile.ZipFile('data/dataset.zip') 
+	dataset_zip = zipfile.ZipFile('dataset.zip') 
 	dataset_full = pd.read_csv(dataset_zip.open('training.1600000.processed.noemoticon.csv'), encoding=encoding, names=columns, usecols=['target', 'text'])
 
 	dataset_full = dataset_full.sample(frac=1).reset_index(drop=True)
