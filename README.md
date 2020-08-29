@@ -1,4 +1,4 @@
-# sentiment-rbf
+# Sentiment Analysis
 Sentiment analysis on tweets via RBF kernel.
 
 ## Usage
